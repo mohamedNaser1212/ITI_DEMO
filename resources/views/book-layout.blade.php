@@ -54,7 +54,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="http://127.0.0.1:8000/main" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="{{route('main')}}" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Main Screen
@@ -72,7 +72,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="http://127.0.0.1:8000/books" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="{{route('books')}}" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Tables</span>

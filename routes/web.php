@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 Route::get('/main', function () {
     return view('main');
-});
+})->name('main');
 Route::get('/books', function () {
     $books = [
         [
@@ -43,4 +43,4 @@ Route::get('/books', function () {
         "page" => $page,
         "books" => $books
     ]);
-});
+})->name('books');
