@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>@yield('title')</title>
+    <title>Dashboard</title>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
@@ -10,7 +10,7 @@
 
     <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">@yield('project-name')</a>
+        <a class="navbar-brand" href="#">Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,7 +45,7 @@
 
             <!-- Content area -->
             <div class="col-md-9">
-                @yield('content')
+                <h1>Hello</h1>
             </div>
 
         </div>
