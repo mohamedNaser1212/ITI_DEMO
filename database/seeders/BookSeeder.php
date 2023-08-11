@@ -18,4 +18,3 @@ class BookSeeder extends Seeder
         Book::factory()->count(100)->create();
     }
 }
-?>

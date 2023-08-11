@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateBookRequest;
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Tag;
 
 class BookController extends Controller
 {
@@ -22,27 +26,36 @@ class BookController extends Controller
     public function create()
     {
         $page = "create book";
-        return view('create-book', ['page' => $page]);
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        return view('create-book', ['page' => $page, 'categories' => $categories, 'tags' => $tags]);
+
     }
     // create
-    public function store(Request $request)
+    public function store(CreateBookRequest $request)
     {
-        Book::create([
-            "title" => $request->title,
-            "price" => $request->price,
-            "description" => $request->description,
-        ]);
+
+        $fileName = Book::uploadFile($request, $request->pic);
+        $book = new Book();
+        $book->title = $request->input('title');
+        $book->price = $request->input('price');
+        $book->description = $request->input('description');
+        $book->cat_id = $request->input('category');
+        $book->pic = $fileName;
+        $book->save();
+        $tags = $request->input('tags');
+        $book->tags()->attach($tags);
+
         return redirect()->route('books.index');
     }
 
     public function show($book)
     {
-        $book = Book::findOrFail($book);
 
+            $book = Book::with('tags')->findOrFail($book);
+            return view('view-page', compact('book'));
 
-        // Return view with book
-        return view('view-page')->with('book', $book);
-        // return view();// task
     }
 
     public function destroy($book)
@@ -75,4 +88,5 @@ class BookController extends Controller
         // Redirect to books.index
         return redirect()->route('books.show',$book->id);
     }
+
 }
