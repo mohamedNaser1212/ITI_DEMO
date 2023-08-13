@@ -30,18 +30,7 @@
         </div>
     </nav>
 
-    <!-- Main content -->
-    <div class="container-fluid my-3">
-        <div class="row">
-
-            <!-- Sidebar -->
-            <div class="col-md-3">
-                <ul class="list-group">
-                    <li class="list-group-item active">Menu</li>
-                    <li class="list-group-item"><a href="{{route('books.index')}}">Books</a></li>
-                    <li class="list-group-item"><a href="{{ route('books.create') }}">Create Book</a></li>
-                </ul>
-            </div>
+  
 
             <!-- Content area -->
             <div class="col-md-9">

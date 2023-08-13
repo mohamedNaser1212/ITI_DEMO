@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +22,7 @@ Route::get('/', function () {
 });
 
 // create route /profile
-Route::middleware(['auth','checkAge'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::resource('books', BookController::class,);
 });
 
